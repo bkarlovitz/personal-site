@@ -12,6 +12,6 @@ I can help you list and prioritize what needs to be done.
 ### Retainer
 
 Would you like to have cloud architecture expertise on-demand? You can have me on
-retainer for a small monthly fee. I work with several cloud environments every year,
-including AWS, Google Cloud Platform, and Microsoft Azure. I have seen the good and
-the ugly. Let's make you one of the goods.
+retainer for a small monthly fee. I see several cloud environments every year in
+each major platform -- AWS, Google Cloud Platform, and Microsoft Azure. I have
+experienced the good and the ugly. Let's make you one of the goods.
