@@ -13,5 +13,5 @@ I can help you list and prioritize what needs to be done.
 
 Would you like to have cloud architecture expertise on-demand? You can have me on
 retainer for a small monthly fee. I work with several cloud environments every year,
-so I bring the experience of seeing the good and the ugly. Let's make you one of
-the goods.
+including AWS, Google Cloud Platform, and Microsoft Azure. I hav seen the good and
+the ugly. Let's make you one of the goods.
