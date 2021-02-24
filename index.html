@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bryan Karlovitz</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+</head>
+<body x-data="{ mobileMenuOpen: false, tab: 'home' }">
+    <nav class="bg-white shadow">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex justify-between h-16">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <!-- Mobile menu button -->
+                    <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" 
+                            aria-expanded="false"
+                            @click="mobileMenuOpen = !mobileMenuOpen">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon when menu is closed. -->
+                        <svg :class="{'hidden': mobileMenuOpen, 'block': !mobileMenuOpen }" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icon when menu is open. -->
+                        <svg :class="{'block': mobileMenuOpen, 'hidden': !mobileMenuOpen }" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="#"
+                           @click="tab = 'home'"
+                           :class="{ 'border-indigo-500 text-gray-900': tab === 'home', 'hover:border-gray-300 hover:text-gray-700': tab !== 'home' }"
+                           class="border-transparent text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="#"
+                           @click="tab = 'about'"
+                           :class="{ 'border-indigo-500 text-gray-900': tab === 'about', 'hover:border-gray-300 hover:text-gray-700': tab !== 'about' }"
+                           class="border-transparent text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            About
+                        </a>
+                        <a href="#"
+                           @click="tab = 'writing'"
+                           :class="{ 'border-indigo-500 text-gray-900': tab === 'writing', 'hover:border-gray-300 hover:text-gray-700': tab !== 'writing' }"
+                           class="border-transparent text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Writing
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div :class="{'block': mobileMenuOpen, 'hidden': !mobileMenuOpen }" class="sm:hidden">
+            <div class="pt-2 pb-4 space-y-1">
+                <a href="#"
+                   @click="tab = 'home'"
+                   :class="{ 'bg-indigo-50 border-indigo-500 text-indigo-700': tab === 'home', 'hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700': tab !== 'home' }"
+                   class="border-transparent text-gray-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Home</a>
+                <a href="#"
+                   @click="tab = 'about'"
+                   :class="{ 'bg-indigo-50 border-indigo-500 text-indigo-700': tab === 'about', 'hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700': tab !== 'about' }"
+                   class="border-transparent text-gray-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">About</a>
+                <a href="#"
+                   @click="tab = 'writing'"
+                   :class="{ 'bg-indigo-50 border-indigo-500 text-indigo-700': tab === 'writing', 'hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700': tab !== 'writing' }"
+                   class="border-transparent text-gray-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Writing</a>
+            </div>
+        </div>
+    </nav>
+    <div x-show="tab === 'home'" class="min-h-screen flex justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl w-full">
+            <div class="mx-auto w-auto">
+                <div class="text-5xl">Hello 👋🏻. I'm Bryan.</div>
+                <div class="text-lg mt-3">I'm an entrepreneur based in Philadelphia. If you want to know more than that, my <span @click="tab = 'about'" class="underline cursor-pointer">About page</span> might help.</div>
+                <div class="text-lg mt-3">You're probably here to read an article I've written. Here's my <span @click="tab = 'writing'" class="underline cursor-pointer">Writing page</span>.</div>
+                <div class="text-lg mt-2">I go as <a href="https://www.twitter.com/bkarlovitz" target="_blank" class="underline">@bkarlovitz</a> most places on the internet. My DMs are open; that's the best way to reach me.</div>
+            </div>
+        </div>
+    </div>
+    <div x-show="tab === 'about'" class="min-h-screen flex justify-center bg-gray-50 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl w-full">
+            <div class="text-lg mt-8">
+                I'm an entrepreneur based in Philadelphia, but you can frequently find me in NYC.
+            </div>
+            <div class="text-lg mt-3">
+                I work on site reliability at <a href="https://www.alluresecurity.com" target="_blank" class="underline">Allure Security</a>, where we protect people from phishing attacks by finding spoofed websites quickly.
+            </div>
+            <div class="text-lg mt-3">
+                I am generally interested in building & running bootstrapped software businesses. Currently, I'm a co-founder at <a href="https://www.kneadapp.com" target="_blank" class="underline">Knead</a>,
+                where we build planning software for the world's best bakeries. 
+            </div>
+            <div class="text-lg mt-3">
+                Outside of work, I like throwing tennis balls for my red-nose pittie, cooking, sports statistics, and reading about many random topics.
+            </div>
+            <div class="text-lg mt-3">
+                If anything on this site is interesting to you, and you want to reach out, send me a DM on twitter: <a href="https://www.twitter.com/bkarlovitz" target="_blank" class="underline">@bkarlovitz</a>.
+            </div>
+        </div>
+    </div>
+    <div x-show="tab === 'writing'" class="min-h-screen flex justify-center bg-gray-50">
+        <div class="max-w-3xl w-full">
+            <div class="text-lg mt-8">
+                Migration in progress.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
